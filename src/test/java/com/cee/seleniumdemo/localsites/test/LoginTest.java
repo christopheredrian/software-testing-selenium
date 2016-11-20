@@ -69,37 +69,37 @@ public class LoginTest {
     public synchronized void negativeTestCases() {
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.clickLogin();
-        // 1. valid email, invalid password
+        // Test Id: 1. valid email, invalid password
         loginPage.setUsername("chrisesp@gmail.com");
         loginPage.setPassword("123453");
         loginPage.clickLogin();
         assertEquals("Invalid message(Test id: 1)", "Incorrect password.",
                 loginPage.getErrorMessage());
         loginPage.clearForms();
-        // 2. valid password, invalid email
+        // Test Id: 2 valid password, invalid email
         loginPage.setUsername("c22@gmail.com");
         loginPage.setPassword("123456");
         loginPage.clickLogin();
         assertEquals("Invalid message(Test id: 2)", "User is not registered.",
                 loginPage.getErrorMessage());
         loginPage.clearForms();
-        // 3. empty email and password, press enter
+        // Test Id 3. empty email and password, press enter
         loginPage.submit();
         assertEquals("Invalid message(Test id: 3)", "Username is required!",
                 loginPage.getErrorMessage());
-        // 4. Username blank, valid password, click login
+        // Test Id 4. Username blank, valid password, click login
         loginPage.clearForms();
         loginPage.setPassword("123456");
         loginPage.clickLogin();
         assertEquals("Invalid message(Test id: 4)", "Username is required!",
                 loginPage.getErrorMessage());
-        // 5. Password blank, enter username, click login
+        // Test Id 5. Password blank, enter username, click login
         loginPage.clearForms();
         loginPage.setUsername("callie@gmail.com");
         loginPage.clickLogin();
         assertEquals("Invalid message(Test id: 5)", "Password is required!",
                 loginPage.getErrorMessage());
-        // 6. Wrong username and password
+        // Test Id 6. Wrong username and password
         loginPage.clearForms();
         loginPage.setUsername("c22@gmail.com");
         loginPage.setPassword("1123");
