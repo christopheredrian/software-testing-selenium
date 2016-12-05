@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cee.seleniumdemo.localsites.test;
 
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,16 +23,16 @@ public class SimpleCalculatorTest {
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        driver.get("http://localhost/software-engineering/simplecalculator/calculator.html");
+        driver.get("http://localhost/software-engineering/simplecalculator/");
     }
 
     @After
     public void tearDown() {
-//        driver.quit();
+        driver.quit();
     }
 
     /**
-     * This method contains all the postiiv test cases
+     * This method contains all the postive test cases
      */
     @Test
     public void positiveTestCases() {
@@ -103,6 +96,21 @@ public class SimpleCalculatorTest {
      */
     @Test
     public void negativeTestCases() {
+        SimpleCalculatorPage page = PageFactory.initElements(driver,
+                SimpleCalculatorPage.class);
+        // Test Id 1. +453
+        page.clearInput();
+        page.inputCharacters("+");
+        page.inputCharacters("453");
+        page.pressEnter();
+        assertEquals("There was an error on Subtract", "453", page.getInput());
+
+        // Test Id 2. Letters: abc3
+        page.clearInput();
+        page.inputCharacters("abc3");
+        page.pressEnter();
+        assertEquals("There was an error on Subtract", "3", page.getInput());
+
     }
 
 }

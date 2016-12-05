@@ -57,6 +57,9 @@ public class SimpleCalculatorPage {
         calculate.click();
     }
 
+    /**
+     * Press the enter/return key
+     */
     public void pressEnter() {
         input.sendKeys(Keys.ENTER);
     }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cee.seleniumdemo.localsites.test;
 
 import java.util.concurrent.TimeUnit;
@@ -13,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import static org.junit.Assert.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
